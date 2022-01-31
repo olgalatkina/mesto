@@ -8,3 +8,16 @@
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/logo/logo.css);
+
+/* PROFILE */
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__content/profile__content.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/button-edit/button-edit.css);
+@import url(../blocks/profile/__position/profile__position.css);
+@import url(../blocks/button-add/button-add.css);
+
+/* GALLERY */
+@import url();

@@ -1,0 +1,17 @@
+.button-edit {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  background-image: url(../../images/ico-edit.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 7.5px 7.5px;
+  border: 1px solid var(--white);
+  transition: opacity .3s linear;
+  cursor: pointer;
+}
+
+.button-edit:hover {
+  opacity: .6;
+}
