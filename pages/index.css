@@ -31,4 +31,5 @@
 @import url(../blocks/button-like/button-like.css);
 
 /* FOOTER */
-@import url();
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
