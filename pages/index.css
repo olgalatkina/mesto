@@ -21,4 +21,14 @@
 @import url(../blocks/button-add/button-add.css);
 
 /* GALLERY */
+@import url(../blocks/gallery/gallery.css);
+@import url(../blocks/gallery/__list/gallery__list.css);
+@import url(../blocks/gallery/__item/gallery__item.css);
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__wrapper/card__wrapper.css);
+@import url(../blocks/card/__title/card__title.css);
+@import url(../blocks/button-like/button-like.css);
+
+/* FOOTER */
 @import url();
