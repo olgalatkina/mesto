@@ -1,3 +1,9 @@
 .gallery__item:not(:last-of-type) {
   margin-bottom: 20px;
 }
+
+@media (min-width: 768px) {
+  .gallery__item:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+}

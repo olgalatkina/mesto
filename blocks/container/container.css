@@ -5,3 +5,21 @@
   padding: 0 19px;
   box-sizing: border-box;
 }
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 42px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 200px;
+  }
+}

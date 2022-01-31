@@ -1,3 +1,9 @@
 .profile__content {
   margin-bottom: 36px;
  }
+
+@media (min-width: 768px) {
+  .profile__content {
+    margin: 0 0 0 30px;
+  }
+}

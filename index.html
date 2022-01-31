@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="./pages/index.css">
   <title>Место</title>
 </head>
-<body class='root'>
-  <header class="header container">
+<body class='root container'>
+  <header class="header">
     <img src="./images/logo-white.svg" alt="Логотип сервиса Место" class="header__logo logo">
   </header>
 
-  <main class="container">
-    <h1 class="title">Cервисом Место: можно добавлять фотографии, удалять их и ставить лайки</h1>
+  <main>
+    <h1 class="title">Cервис Место: можно добавлять фотографии, удалять их и ставить лайки</h1>
     <section class="profile">
       <img src="./images/kusto-sourse.jpg" alt="Аватар" class="profile__avatar">
       <div class="profile__content">
@@ -83,8 +83,8 @@
       <button type="button" class="button-close"></button>
       <form class="popup__form" action="#" method="post">
         <p class="popup__title">Редактировать профиль</p>
-        <input type="text" name="" id="" class="popup__input" placeholder="Жак-Ив Кусто">
-        <input type="text" name="" id="" class="popup__input" placeholder="Исследователь океана">
+        <input type="text" name="name" id="name" class="popup__input" placeholder="Жак-Ив Кусто">
+        <input type="text" name="position" id="position" class="popup__input" placeholder="Исследователь океана">
         <button type="submit" class="button-save">Сохранить</button>
       </form>
     </div>

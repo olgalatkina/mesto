@@ -4,3 +4,9 @@
   justify-content: center;
   margin-bottom: 14px;
 }
+
+@media (min-width: 768px) {
+  .profile__wrapper {
+    margin-bottom: 16px;
+  }
+}

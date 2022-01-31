@@ -2,3 +2,12 @@
   text-align: center;
   padding: 42px 0 0;
 }
+
+
+@media (min-width: 768px) {
+  .profile {
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+}

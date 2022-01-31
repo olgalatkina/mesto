@@ -6,3 +6,10 @@
   line-height: 17px;
   margin: 0;
  }
+
+@media (min-width: 768px) {
+  .profile__position {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
