@@ -4,10 +4,10 @@ const profilePosition = profile.querySelector('.profile__position');
 const buttonEdit = profile.querySelector('.button-edit');
 
 const popup = document.querySelector('.popup');
-const inputName = popup.querySelector('#name');
-const inputPosition = popup.querySelector('#position');
 const buttonClose = popup.querySelector('.button-close');
-const buttonSave = popup.querySelector('.button-save');
+const form = popup.querySelector('.popup__form')
+const inputName = form.querySelector('#name');
+const inputPosition = form.querySelector('#position');
 
 const clickEditButtonHandler = () => {
   popup.classList.add('popup_opened');
@@ -37,11 +37,11 @@ const popupKeyDownHandler = (evt) => {
   }
 };
 
-const clickButtonSaveHandler = (evt) => {
+const formSubmitHandler = (evt) => {
   evt.preventDefault();
   changeDataInProfile();
 };
 
 buttonEdit.addEventListener('click', clickEditButtonHandler);
 buttonClose.addEventListener('click', clickCloseButtonHandler);
-buttonSave.addEventListener('click', clickButtonSaveHandler);
+form.addEventListener('submit', formSubmitHandler);
