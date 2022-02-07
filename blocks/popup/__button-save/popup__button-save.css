@@ -1,4 +1,4 @@
-.button-save {
+.popup__button-save {
   display: block;
   width: 100%;
   padding: 14px;
@@ -17,6 +17,6 @@
   cursor: pointer;
 }
 
-.button-save:hover {
+.popup__button-save:hover {
   opacity: 0.8;
 }

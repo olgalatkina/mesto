@@ -1,22 +1,22 @@
 const profile = document.querySelector('.profile');
 const profileName = profile.querySelector('.profile__name');
 const profilePosition = profile.querySelector('.profile__position');
-const buttonEdit = profile.querySelector('.button-edit');
+const buttonEdit = profile.querySelector('.profile__button-edit');
 
 const popup = document.querySelector('.popup');
-const buttonClose = popup.querySelector('.button-close');
+const buttonClose = popup.querySelector('.popup__button-close');
 const form = popup.querySelector('.popup__form')
 const inputName = form.querySelector('#name');
 const inputPosition = form.querySelector('#position');
 
-const clickEditButtonHandler = () => {
+const openProfilePopup = () => {
   popup.classList.add('popup_opened');
-  popup.addEventListener('keydown', popupKeyDownHandler);
+  inputName.value = profileName.textContent;
+  inputPosition.value = profilePosition.textContent;
 };
 
-const clickCloseButtonHandler = () => {
+const closeProfilePopup = () => {
   popup.classList.remove('popup_opened');
-  popup.removeEventListener('keydown', popupKeyDownHandler);
 };
 
 const changeDataInProfile = () => {
@@ -31,17 +31,12 @@ const changeDataInProfile = () => {
   }
 };
 
-const popupKeyDownHandler = (evt) => {
-  if (evt.key === 'Enter') {
-    changeDataInProfile();
-  }
-};
-
-const formSubmitHandler = (evt) => {
+const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
   changeDataInProfile();
+  closeProfilePopup();
 };
 
-buttonEdit.addEventListener('click', clickEditButtonHandler);
-buttonClose.addEventListener('click', clickCloseButtonHandler);
-form.addEventListener('submit', formSubmitHandler);
+buttonEdit.addEventListener('click', openProfilePopup);
+buttonClose.addEventListener('click', closeProfilePopup);
+form.addEventListener('submit', handleProfileFormSubmit);
