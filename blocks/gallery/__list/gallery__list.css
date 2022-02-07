@@ -4,7 +4,7 @@
   list-style: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .gallery__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, calc(50% - 9px));
@@ -14,7 +14,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 936px) {
   .gallery__list {
     grid-template-columns: repeat(auto-fill, calc(33% - 10px));
   }
