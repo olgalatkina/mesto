@@ -18,3 +18,14 @@
 .popup__button-close:hover {
   opacity: .6;
 }
+
+@media (min-width: 768px) {
+  .popup__button-close {
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+    height: 32px;
+    top: -40px;
+    right: -40px;
+  }
+}
