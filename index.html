@@ -8,7 +8,7 @@
   <title>Место</title>
 </head>
   <body class='root'>
-    <div class="page">
+    <div class="container">
       <header class="header">
         <img src="./images/logo-white.svg" alt="Логотип сервиса Место" class="header__logo logo">
       </header>
@@ -29,48 +29,6 @@
 
         <section class="gallery">
           <ul class="gallery__list">
-            <li class="gallery__item card">
-              <img src="./images/teleckoe.jpg" alt="Телецкое озеро" class="card__image">
-              <div class="card__wrapper">
-                <h3 class="card__title">Телецкое озеро</h3>
-                <button type="button" class="card__button-like"></button>
-              </div>
-            </li>
-            <li class="gallery__item card">
-              <img src="./images/sheregesh.jpg" alt="Шерегеш" class="card__image">
-              <div class="card__wrapper">
-                <h3 class="card__title">Шерегеш</h3>
-                <button type="button" class="card__button-like"></button>
-              </div>
-            </li>
-            <li class="gallery__item card">
-              <img src="./images/altay.jpg" alt="Алтай" class="card__image">
-              <div class="card__wrapper">
-                <h3 class="card__title">Алтай</h3>
-                <button type="button" class="card__button-like"></button>
-              </div>
-            </li>
-            <li class="gallery__item card">
-              <img src="./images/dombaj.jpg" alt="Домбай" class="card__image">
-              <div class="card__wrapper">
-                <h3 class="card__title">Домбай</h3>
-                <button type="button" class="card__button-like"></button>
-              </div>
-            </li>
-            <li class="gallery__item card">
-              <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__image">
-              <div class="card__wrapper">
-                <h3 class="card__title">Эльбрус</h3>
-                <button type="button" class="card__button-like"></button>
-              </div>
-            </li>
-            <li class="gallery__item card">
-              <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
-              <div class="card__wrapper">
-                <h3 class="card__title">Карачаево-Черкессия</h3>
-                <button type="button" class="card__button-like"></button>
-              </div>
-            </li>
           </ul>
         </section>
       </main>
@@ -78,20 +36,52 @@
       <footer class="footer">
         <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
       </footer>
-
-      <section class="popup">
-        <div class="popup__container">
-          <button type="button" class="popup__button-close"></button>
-          <form class="popup__form" action="#" method="post">
-            <p class="popup__title">Редактировать профиль</p>
-            <input type="text" name="name" id="name" class="popup__input" placeholder="Введите имя">
-            <input type="text" name="position" id="position" class="popup__input" placeholder="Укажите профессию">
-            <button type="submit" class="popup__button-save">Сохранить</button>
-          </form>
-        </div>
-      </section>
     </div>
 
+    <section class="popup" id="popup-edit-profile">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <form class="popup__form" action="#" method="post">
+          <p class="popup__title">Редактировать профиль</p>
+          <input type="text" name="name" id="name" class="popup__input" placeholder="Введите имя">
+          <input type="text" name="position" id="position" class="popup__input" placeholder="Укажите профессию">
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup" id="popup-add-photo">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <form class="popup__form" action="#" method="post">
+          <p class="popup__title">Новое место</p>
+          <input type="text" name="name" id="title" class="popup__input" placeholder="Название">
+          <input type="text" name="position" id="link" class="popup__input" placeholder="Ссылка на картинку">
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup" id="popup-show-photo">
+      <figure class="popup__figure">
+        <button type="button" class="popup__button-close"></button>
+        <img class="popup__image" src="" alt=""/>
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+    </section>
+
+    <template id="card-template">
+      <li class="gallery__item card" data-islike="false">
+        <button type="button" class="card__button-trash"></button>
+        <img src="" alt="" class="card__image">
+        <div class="card__wrapper">
+          <h3 class="card__title"></h3>
+          <button type="button" class="card__button-like"></button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./scripts/initial-cards.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
