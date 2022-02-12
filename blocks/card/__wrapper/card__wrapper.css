@@ -4,4 +4,6 @@
   gap: 26px;
   align-items: center;
   padding: 25px 15px 31px 21px;
+  background-color: var(--white);
+  border-radius: 0 0 10px 10px;
 }

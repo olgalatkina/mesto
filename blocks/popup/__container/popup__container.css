@@ -9,3 +9,9 @@
   border-radius: 10px;
   box-sizing: border-box;
 }
+
+@media (min-width: 512px) {
+  .popup__container {
+    padding: 34px 36px 37px;
+  }
+}
