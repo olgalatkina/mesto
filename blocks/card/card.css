@@ -1,4 +1,8 @@
 .card {
-  background-color: var(--white);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--grey);
   border-radius: 10px;
 }
