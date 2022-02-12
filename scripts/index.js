@@ -52,7 +52,6 @@ const openPopup = (evt) => {
 
 const closePopup = () => {
   popup.classList.remove('popup_opened');
-  popup.removeEventListener('keydown', popupKeyDownHandler);
 };
 
 const changeDataInProfile = () => {
