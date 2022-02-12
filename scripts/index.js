@@ -46,12 +46,20 @@ const openPopup = (evt) => {
   }
 
   popup.classList.add('popup_opened');
+  popup.classList.add('fade-in');
   buttonClose = popup.querySelector('.popup__button-close');
   buttonClose.addEventListener('click', closePopup);
 };
 
-const closePopup = () => {
+const removeClassesFromPopup = () => {
   popup.classList.remove('popup_opened');
+  popup.classList.remove('fade-out');
+}
+
+const closePopup = () => {
+  popup.classList.remove('fade-in');
+  popup.classList.add('fade-out');
+  setTimeout(removeClassesFromPopup, 400);
 };
 
 const changeDataInProfile = () => {
