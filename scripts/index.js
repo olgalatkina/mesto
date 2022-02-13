@@ -43,6 +43,7 @@ const openPopup = (evt) => {
     popup = popupShowPhoto;
     popupCaption.textContent = evt.target.alt;
     popupImage.src = evt.target.src;
+    popupImage.alt = evt.target.alt;
   }
 
   popup.classList.add('popup_opened');
@@ -144,6 +145,8 @@ const handleFormSubmit = (evt) => {
   }
   if (current.includes('add')) {
     addCard();
+    inputTitle.value = '';
+    inputLink.value = '';
   }
 
   closePopup();
