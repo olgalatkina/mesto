@@ -123,9 +123,7 @@ const openEditProfilePopup = () => {
   openPopup(popupEdit);
 };
 
-const openAddPhotoPopup = () => {
-  openPopup(popupAdd);
-};
+const openAddPhotoPopup = () => openPopup(popupAdd);
 
 const openShowPhotoPopup = (evt) => {
   popupCaption.textContent = evt.target.alt;
@@ -134,17 +132,9 @@ const openShowPhotoPopup = (evt) => {
   openPopup(popupShow);
 };
 
-const closeEditProfilePopup = () => {
-  closePopup(popupEdit);
-};
-
-const closeAddPhotoPopup = () => {
-  closePopup(popupAdd);
-};
-
-const closeShowPhotoPopup = () => {
-  closePopup(popupShow);
-}
+const closeEditProfilePopup = () => closePopup(popupEdit);
+const closeAddPhotoPopup = () => closePopup(popupAdd);
+const closeShowPhotoPopup = () => closePopup(popupShow);
 
 buttonEdit.addEventListener('click', openEditProfilePopup);
 buttonAddCard.addEventListener('click', openAddPhotoPopup);
