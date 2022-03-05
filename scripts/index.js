@@ -125,15 +125,25 @@ const handleEscPress = (evt) => {
   document.removeEventListener(`keydown`, handleEscPress);
 }
 
+const closePopupByClickOnOverlay = (evt) => {
+  if (evt.target !== evt.currentTarget) {
+    return;
+  }
+  const popup = document.querySelector('.popup_opened');
+  closePopup(popup);
+}
+
 const openEditProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputPosition.value = profilePosition.textContent;
   openPopup(popupEdit);
+  popupEdit.addEventListener('click', closePopupByClickOnOverlay);
   document.addEventListener(`keydown`, handleEscPress);
 };
 
 const openAddPhotoPopup = () => {
   openPopup(popupAdd);
+  popupAdd.addEventListener('click', closePopupByClickOnOverlay);
   document.addEventListener(`keydown`, handleEscPress);
 };
 
@@ -142,6 +152,7 @@ const openShowPhotoPopup = (evt) => {
   popupImage.src = evt.target.src;
   popupImage.alt = evt.target.alt;
   openPopup(popupShow);
+  popupShow.addEventListener('click', closePopupByClickOnOverlay);
   document.addEventListener(`keydown`, handleEscPress);
 };
 
