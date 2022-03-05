@@ -117,14 +117,24 @@ const closePopup = (popup) => {
   }, 400);
 };
 
+const handleEscPress = (evt) => {
+  if (evt.key = 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+  document.removeEventListener(`keydown`, handleEscPress);
+}
+
 const openEditProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputPosition.value = profilePosition.textContent;
   openPopup(popupEdit);
+  document.addEventListener(`keydown`, handleEscPress);
 };
 
 const openAddPhotoPopup = () => {
   openPopup(popupAdd);
+  document.addEventListener(`keydown`, handleEscPress);
 };
 
 const openShowPhotoPopup = (evt) => {
@@ -132,6 +142,7 @@ const openShowPhotoPopup = (evt) => {
   popupImage.src = evt.target.src;
   popupImage.alt = evt.target.alt;
   openPopup(popupShow);
+  document.addEventListener(`keydown`, handleEscPress);
 };
 
 const closeEditProfilePopup = () => {
