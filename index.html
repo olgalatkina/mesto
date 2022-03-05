@@ -43,8 +43,31 @@
         <button type="button" class="popup__button-close"></button>
         <form class="popup__form" action="#" method="post">
           <p class="popup__title">Редактировать профиль</p>
-          <input type="text" name="name" id="name" class="popup__input" placeholder="Введите имя">
-          <input type="text" name="position" id="position" class="popup__input" placeholder="Укажите профессию">
+          <label for="name" class="popup__label">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="popup__input"
+              placeholder="Введите имя"
+              minlength=""
+              maxlength="40"
+              required>
+            <p class="popup__error">Вы пропустили это поле.</p>
+          </label>
+
+          <label for="position" class="popup__label">
+            <input
+              type="text"
+              name="position"
+              id="position"
+              class="popup__input"
+              placeholder="Укажите профессию"
+              minlength="2"
+              maxlength="200"
+              required>
+            <p class="popup__error">Вы пропустили это поле.</p>
+          </label>
           <button type="submit" class="popup__button-save">Сохранить</button>
         </form>
       </div>
@@ -55,8 +78,29 @@
         <button type="button" class="popup__button-close"></button>
         <form class="popup__form" action="#" method="post">
           <p class="popup__title">Новое место</p>
-          <input type="text" name="name" id="title" class="popup__input" placeholder="Название">
-          <input type="text" name="position" id="link" class="popup__input" placeholder="Ссылка на картинку">
+          <label for="title" class="popup__label">
+            <input
+              type="text"
+              name="name"
+              id="title"
+              class="popup__input"
+              placeholder="Название"
+              minlength="1"
+              maxlength="30"
+              required>
+            <p class="popup__error">Вы пропустили это поле.</p>
+          </label>
+
+          <label for="link" class="popup__label">
+            <input
+              type="url"
+              name="position"
+              id="link"
+              class="popup__input"
+              placeholder="Ссылка на картинку"
+              required>
+            <p class="popup__error">Введите адрес сайта.</p>
+          </label>
           <button type="submit" class="popup__button-save">Сохранить</button>
         </form>
       </div>
