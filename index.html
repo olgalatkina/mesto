@@ -41,7 +41,7 @@
     <section class="popup" id="popup-edit-profile">
       <div class="popup__container">
         <button type="button" class="popup__button-close"></button>
-        <form class="popup__form" action="#" method="post">
+        <form class="popup__form" action="#" method="post" novalidate>
           <p class="popup__title">Редактировать профиль</p>
           <label for="name" class="popup__label">
             <input
@@ -50,10 +50,10 @@
               id="name"
               class="popup__input"
               placeholder="Введите имя"
-              minlength=""
+              minlength="2"
               maxlength="40"
               required>
-            <p class="popup__error">Вы пропустили это поле.</p>
+            <p class="popup__error" id="name-error">Вы пропустили это поле.</p>
           </label>
 
           <label for="position" class="popup__label">
@@ -66,7 +66,7 @@
               minlength="2"
               maxlength="200"
               required>
-            <p class="popup__error">Вы пропустили это поле.</p>
+            <p class="popup__error" id="position-error">Вы пропустили это поле.</p>
           </label>
           <button type="submit" class="popup__button-save">Сохранить</button>
         </form>
@@ -76,30 +76,30 @@
     <section class="popup" id="popup-add-photo">
       <div class="popup__container">
         <button type="button" class="popup__button-close"></button>
-        <form class="popup__form" action="#" method="post">
+        <form class="popup__form" action="#" method="post" novalidate>
           <p class="popup__title">Новое место</p>
           <label for="title" class="popup__label">
             <input
               type="text"
-              name="name"
+              name="title"
               id="title"
               class="popup__input"
               placeholder="Название"
               minlength="1"
               maxlength="30"
               required>
-            <p class="popup__error">Вы пропустили это поле.</p>
+            <p class="popup__error" id="title-error">Вы пропустили это поле.</p>
           </label>
 
           <label for="link" class="popup__label">
             <input
               type="url"
-              name="position"
+              name="link"
               id="link"
               class="popup__input"
               placeholder="Ссылка на картинку"
               required>
-            <p class="popup__error">Введите адрес сайта.</p>
+            <p class="popup__error" id="link-error">Введите адрес сайта.</p>
           </label>
           <button type="submit" class="popup__button-save">Сохранить</button>
         </form>
@@ -126,6 +126,7 @@
     </template>
 
     <script src="./scripts/initialCards.js"></script>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

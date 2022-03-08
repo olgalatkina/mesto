@@ -106,6 +106,8 @@ const handleAddFormSubmit = (evt) => {
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   popup.classList.add('fade-in');
+  popup.addEventListener('click', closePopupByClickOnOverlay);
+  document.addEventListener(`keydown`, handleEscPress);
 };
 
 const closePopup = (popup) => {
@@ -115,15 +117,15 @@ const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
     popup.classList.remove('fade-out');
   }, 400);
+  document.removeEventListener(`keydown`, handleEscPress);
 };
 
 const handleEscPress = (evt) => {
-  if (evt.key = 'Escape') {
+  if (evt.key === 'Escape') {
     const popup = document.querySelector('.popup_opened');
     closePopup(popup);
   }
-  document.removeEventListener(`keydown`, handleEscPress);
-}
+};
 
 const closePopupByClickOnOverlay = (evt) => {
   if (evt.target !== evt.currentTarget) {
@@ -131,20 +133,16 @@ const closePopupByClickOnOverlay = (evt) => {
   }
   const popup = document.querySelector('.popup_opened');
   closePopup(popup);
-}
+};
 
 const openEditProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputPosition.value = profilePosition.textContent;
   openPopup(popupEdit);
-  popupEdit.addEventListener('click', closePopupByClickOnOverlay);
-  document.addEventListener(`keydown`, handleEscPress);
 };
 
 const openAddPhotoPopup = () => {
   openPopup(popupAdd);
-  popupAdd.addEventListener('click', closePopupByClickOnOverlay);
-  document.addEventListener(`keydown`, handleEscPress);
 };
 
 const openShowPhotoPopup = (evt) => {
@@ -152,8 +150,6 @@ const openShowPhotoPopup = (evt) => {
   popupImage.src = evt.target.src;
   popupImage.alt = evt.target.alt;
   openPopup(popupShow);
-  popupShow.addEventListener('click', closePopupByClickOnOverlay);
-  document.addEventListener(`keydown`, handleEscPress);
 };
 
 const closeEditProfilePopup = () => {
