@@ -106,6 +106,8 @@ const handleAddFormSubmit = (evt) => {
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   popup.classList.add('fade-in');
+  popup.addEventListener('click', closePopupByClickOnOverlay);
+  document.addEventListener(`keydown`, handleEscPress);
 };
 
 const closePopup = (popup) => {
@@ -115,6 +117,22 @@ const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
     popup.classList.remove('fade-out');
   }, 400);
+  document.removeEventListener(`keydown`, handleEscPress);
+};
+
+const handleEscPress = (evt) => {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+};
+
+const closePopupByClickOnOverlay = (evt) => {
+  if (evt.target !== evt.currentTarget) {
+    return;
+  }
+  const popup = document.querySelector('.popup_opened');
+  closePopup(popup);
 };
 
 const openEditProfilePopup = () => {
