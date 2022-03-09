@@ -111,6 +111,7 @@ const closePopup = (popup) => {
     popup.classList.remove('fade-out');
   }, 400);
   document.removeEventListener(`keydown`, handleEscPress);
+  popup.removeEventListener('click', closePopupByClickOnOverlay);
 };
 
 const handleEscPress = (evt) => {
