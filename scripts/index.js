@@ -49,12 +49,10 @@ const renderCards = (cards) => (
 );
 
 const addCard = () => {
-  const newCardData = {
+  gallery.prepend(createCardElement({
     name: inputTitle.value,
     link: inputLink.value,
-  };
-
-  gallery.prepend(createCardElement(newCardData));
+  }));
 };
 
 const deleteCard = (evt) => {
@@ -63,18 +61,7 @@ const deleteCard = (evt) => {
 };
 
 const toggleLike = (evt) => {
-  const like = evt.target;
-  const card = like.closest('.card');
-  const cardStatus = card.dataset.islike;
-
-  if (cardStatus === 'false') {
-    card.dataset.islike = 'true';
-    like.style.setProperty('background-image', 'url(../../../images/icon-heart-fill.svg)');
-  }
-  if (cardStatus === 'true') {
-    card.dataset.islike = 'false';
-    like.style.setProperty('background-image', 'url(../../../images/icon-heart.svg)');
-  }
+  evt.target.classList.toggle('card__button-like_active');
 };
 
 const changeDataInProfile = () => {
