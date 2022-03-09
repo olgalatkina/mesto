@@ -22,6 +22,7 @@ const popupImage = popupShow.querySelector('.popup__image');
 const popupCaption = popupShow.querySelector('.popup__caption');
 
 const popups = document.querySelectorAll('.popup');
+const errorFields = document.querySelectorAll('.popup__error');
 
 const createCardElement = ({ name, link }) => {
   const newCard = cardTemplate.querySelector('.card').cloneNode(true);
@@ -120,9 +121,16 @@ const closePopupByClickOnOverlay = (evt) => {
   }
 };
 
+const resetPopupEdit = () => {
+  errorFields.forEach((field) => field.textContent = '');
+  inputName.classList.remove('popup__input_type_error');
+  inputPosition.classList.remove('popup__input_type_error');
+}
+
 const openEditProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputPosition.value = profilePosition.textContent;
+  resetPopupEdit();
   openPopup(popupEdit);
 };
 
