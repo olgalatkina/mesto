@@ -122,11 +122,9 @@ const handleEscPress = (evt) => {
 };
 
 const closePopupByClickOnOverlay = (evt) => {
-  if (evt.target !== evt.currentTarget) {
-    return;
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
   }
-  const popup = document.querySelector('.popup_opened');
-  closePopup(popup);
 };
 
 const openEditProfilePopup = () => {
