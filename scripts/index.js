@@ -98,18 +98,12 @@ const handleAddFormSubmit = (evt) => {
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  popup.classList.add('fade-in');
   popup.addEventListener('click', closePopupByClickOnOverlay);
   document.addEventListener(`keydown`, handleEscPress);
 };
 
 const closePopup = (popup) => {
-  popup.classList.remove('fade-in');
-  popup.classList.add('fade-out');
-  setTimeout(() => {
-    popup.classList.remove('popup_opened');
-    popup.classList.remove('fade-out');
-  }, 400);
+  popup.classList.remove('popup_opened');
   document.removeEventListener(`keydown`, handleEscPress);
   popup.removeEventListener('click', closePopupByClickOnOverlay);
 };
