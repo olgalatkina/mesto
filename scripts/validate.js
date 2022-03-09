@@ -8,9 +8,8 @@ const showError = (formElement, inputElement, errorMessage, errorClass, inputErr
 };
 
 const hideError = (formElement, inputElement, errorClass, inputErrorClass) => {
-  const defaultErrorMessage = 'Вы пропустили это поле.';
   const errorElement = getErrorElement(formElement, inputElement);
-  errorElement.textContent = defaultErrorMessage;
+  errorElement.textContent = '';
   errorElement.classList.remove(errorClass);
   inputElement.classList.remove(inputErrorClass);
 };
