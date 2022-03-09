@@ -9,20 +9,19 @@ const cardTemplate = document.querySelector('#card-template').content;
 
 const popupEdit = document.querySelector('#popup-edit-profile');
 const formPopupEdit = popupEdit.querySelector('.popup__form');
-const closeButtonPopupEdit = popupEdit.querySelector('.popup__button-close');
 const inputName = popupEdit.querySelector('#name');
 const inputPosition = popupEdit.querySelector('#position');
 
 const popupAdd = document.querySelector('#popup-add-photo');
 const formPopupAdd = popupAdd.querySelector('.popup__form');
-const closeButtonPopupAdd = popupAdd.querySelector('.popup__button-close');
 const inputTitle = popupAdd.querySelector('#title');
 const inputLink = popupAdd.querySelector('#link');
 
 const popupShow = document.querySelector('#popup-show-photo');
-const closeButtonPopupShow = popupShow.querySelector('.popup__button-close');
 const popupImage = popupShow.querySelector('.popup__image');
 const popupCaption = popupShow.querySelector('.popup__caption');
+
+const popups = document.querySelectorAll('.popup');
 
 const createCardElement = ({ name, link }) => {
   const newCard = cardTemplate.querySelector('.card').cloneNode(true);
@@ -138,18 +137,6 @@ const openShowPhotoPopup = ({ name, link }) => {
   openPopup(popupShow);
 };
 
-const closeEditProfilePopup = () => {
-  closePopup(popupEdit);
-};
-
-const closeAddPhotoPopup = () => {
-  closePopup(popupAdd);
-};
-
-const closeShowPhotoPopup = () => {
-  closePopup(popupShow);
-}
-
 buttonEdit.addEventListener('click', openEditProfilePopup);
 buttonAddCard.addEventListener('click', openAddPhotoPopup);
 popupImage.addEventListener('click', openShowPhotoPopup);
@@ -157,8 +144,15 @@ popupImage.addEventListener('click', openShowPhotoPopup);
 formPopupEdit.addEventListener('submit', handleEditFormSubmit);
 formPopupAdd.addEventListener('submit', handleAddFormSubmit);
 
-closeButtonPopupEdit.addEventListener('click', closeEditProfilePopup);
-closeButtonPopupAdd.addEventListener('click', closeAddPhotoPopup);
-closeButtonPopupShow.addEventListener('click', closeShowPhotoPopup);
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains('popup__button-close')) {
+      closePopup(popup);
+    }
+  })
+});
 
 renderCards(initialCards);
