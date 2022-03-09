@@ -30,7 +30,7 @@ const createCardElement = ({ name, link }) => {
   const image = newCard.querySelector('.card__image');
   image.alt = name;
   image.src = link;
-  image.addEventListener('click', openShowPhotoPopup);
+  image.addEventListener('click', () => openShowPhotoPopup({ name, link }));
 
   const title = newCard.querySelector('.card__title');
   title.textContent = name;
@@ -137,10 +137,10 @@ const openAddPhotoPopup = () => {
   openPopup(popupAdd);
 };
 
-const openShowPhotoPopup = (evt) => {
-  popupCaption.textContent = evt.target.alt;
-  popupImage.src = evt.target.src;
-  popupImage.alt = evt.target.alt;
+const openShowPhotoPopup = ({ name, link }) => {
+  popupCaption.textContent = name;
+  popupImage.src = link;
+  popupImage.alt = name;
   openPopup(popupShow);
 };
 
