@@ -98,26 +98,18 @@ const handleAddFormSubmit = (evt) => {
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  popup.addEventListener('click', closePopupByClickOnOverlay);
   document.addEventListener(`keydown`, handleEscPress);
 };
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
   document.removeEventListener(`keydown`, handleEscPress);
-  popup.removeEventListener('click', closePopupByClickOnOverlay);
 };
 
 const handleEscPress = (evt) => {
   if (evt.key === 'Escape') {
     const popup = document.querySelector('.popup_opened');
     closePopup(popup);
-  }
-};
-
-const closePopupByClickOnOverlay = (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closePopup(evt.target);
   }
 };
 
@@ -145,7 +137,6 @@ const openShowPhotoPopup = ({ name, link }) => {
 
 buttonEdit.addEventListener('click', openEditProfilePopup);
 buttonAddCard.addEventListener('click', openAddPhotoPopup);
-popupImage.addEventListener('click', openShowPhotoPopup);
 
 formPopupEdit.addEventListener('submit', handleEditFormSubmit);
 formPopupAdd.addEventListener('submit', handleAddFormSubmit);
