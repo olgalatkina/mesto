@@ -85,8 +85,7 @@ const handleEditFormSubmit = (evt) => {
 const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
   addCard();
-  inputTitle.value = '';
-  inputLink.value = '';
+  evt.target.reset();
   closePopup(popupAdd);
 };
 
