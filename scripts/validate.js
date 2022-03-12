@@ -42,7 +42,7 @@ const setEventListeners = (formElement, inputSelector, errorClass, inputErrorCla
   const submitButtonElement = formElement.querySelector(submitButtonSelector);
 
   const inputListIterator = (inputElement) => {
-    const handleInput = (evt) => {
+    const handleInput = () => {
       checkValidity(formElement, inputElement, errorClass, inputErrorClass);
       toggleButtonState(inputList, submitButtonElement, inactiveButtonClass);
     };

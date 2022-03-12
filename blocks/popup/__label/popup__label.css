@@ -1,12 +1,12 @@
 .popup__label:not(:last-of-type) {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .popup__label:last-of-type {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 512px) {
   .popup__label:last-of-type {
-    margin-bottom: 28px;
+    margin-bottom: 23px;
   }
 }

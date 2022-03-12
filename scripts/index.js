@@ -85,7 +85,7 @@ const handleEditFormSubmit = (evt) => {
 const setDisabledOnSubmitButton = (evt) => {
   const submitButtonElement = evt.target.querySelector('.popup__button-save');
   submitButtonElement.classList.add('popup__button-save_disabled');
-  submitButtonElement.setAttribute('disabled', true);
+  submitButtonElement.disabled = true;
 };
 
 const handleAddFormSubmit = (evt) => {
