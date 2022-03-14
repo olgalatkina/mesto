@@ -22,7 +22,6 @@ const popupImage = popupShow.querySelector('.popup__image');
 const popupCaption = popupShow.querySelector('.popup__caption');
 
 const popups = document.querySelectorAll('.popup');
-const errorFields = document.querySelectorAll('.popup__error');
 
 const createCardElement = ({ name, link }) => {
   const newCard = cardTemplate.querySelector('.card').cloneNode(true);
@@ -91,7 +90,6 @@ const setDisabledOnSubmitButton = (evt) => {
 const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
   addCard();
-  evt.target.reset();
   setDisabledOnSubmitButton(evt);
   closePopup(popupAdd);
 };
@@ -113,20 +111,25 @@ const handleEscPress = (evt) => {
   }
 };
 
-const resetPopupEdit = () => {
+const resetPopup = (popup) => {
+  const errorFields = popup.querySelectorAll('.popup__error');
   errorFields.forEach((field) => field.textContent = '');
-  inputName.classList.remove('popup__input_type_error');
-  inputPosition.classList.remove('popup__input_type_error');
-}
+  const inputs = popup.querySelectorAll('.popup__input');
+  inputs.forEach((input) => input.classList.remove('popup__input_type_error'));
+};
 
 const openEditProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputPosition.value = profilePosition.textContent;
-  resetPopupEdit();
+  resetPopup(popupEdit);
   openPopup(popupEdit);
 };
 
-const openAddPhotoPopup = () => openPopup(popupAdd);
+const openAddPhotoPopup = () => {
+  popupAdd.querySelector('.popup__form').reset();
+  resetPopup(popupAdd);
+  openPopup(popupAdd);
+};
 
 const openShowPhotoPopup = ({ name, link }) => {
   popupCaption.textContent = name;
