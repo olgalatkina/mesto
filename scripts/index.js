@@ -106,7 +106,7 @@ const closePopup = (popup) => {
 
 const handleEscPress = (evt) => {
   if (evt.key === 'Escape') {
-    const popup = document.querySelector('.popup_opened');
+    const popup = Array.from(popups).find((popup) => popup.classList.contains('popup_opened'));
     closePopup(popup);
   }
 };
