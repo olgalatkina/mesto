@@ -81,8 +81,8 @@ const handleEditFormSubmit = (evt) => {
   closePopup(popupEdit);
 };
 
-const setDisabledOnSubmitButton = (evt) => {
-  const submitButtonElement = evt.target.querySelector('.popup__button-save');
+const setDisabledOnSubmitButton = (popup) => {
+  const submitButtonElement = popup.querySelector('.popup__button-save');
   submitButtonElement.classList.add('popup__button-save_disabled');
   submitButtonElement.disabled = true;
 };
@@ -90,7 +90,6 @@ const setDisabledOnSubmitButton = (evt) => {
 const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
   addCard();
-  setDisabledOnSubmitButton(evt);
   closePopup(popupAdd);
 };
 
@@ -116,6 +115,7 @@ const resetPopup = (popup) => {
   errorFields.forEach((field) => field.textContent = '');
   const inputs = popup.querySelectorAll('.popup__input');
   inputs.forEach((input) => input.classList.remove('popup__input_type_error'));
+  setDisabledOnSubmitButton(popup);
 };
 
 const openEditProfilePopup = () => {
