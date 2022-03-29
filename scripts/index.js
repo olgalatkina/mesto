@@ -1,3 +1,6 @@
+import initialCards from './initialCards.js';
+import Card from './Card.js';
+
 const profile = document.querySelector('.profile');
 const profileName = profile.querySelector('.profile__name');
 const profilePosition = profile.querySelector('.profile__position');
@@ -5,7 +8,6 @@ const buttonEdit = profile.querySelector('.profile__button-edit');
 const buttonAddCard = profile.querySelector('.profile__button-add');
 
 const gallery = document.querySelector('.gallery__list');
-const cardTemplate = document.querySelector('#card-template').content;
 
 const popupEdit = document.querySelector('#popup-edit-profile');
 const formPopupEdit = popupEdit.querySelector('.popup__form');
@@ -17,50 +19,19 @@ const formPopupAdd = popupAdd.querySelector('.popup__form');
 const inputTitle = popupAdd.querySelector('#title');
 const inputLink = popupAdd.querySelector('#link');
 
-const popupShow = document.querySelector('#popup-show-photo');
-const popupImage = popupShow.querySelector('.popup__image');
-const popupCaption = popupShow.querySelector('.popup__caption');
-
 const popups = document.querySelectorAll('.popup');
 
-const createCardElement = ({ name, link }) => {
-  const newCard = cardTemplate.querySelector('.card').cloneNode(true);
-
-  const image = newCard.querySelector('.card__image');
-  image.alt = name;
-  image.src = link;
-  image.addEventListener('click', () => openShowPhotoPopup({ name, link }));
-
-  const title = newCard.querySelector('.card__title');
-  title.textContent = name;
-
-  const like = newCard.querySelector('.card__button-like');
-  like.addEventListener('click', toggleLike);
-
-  const trash = newCard.querySelector('.card__button-trash');
-  trash.addEventListener('click', deleteCard);
-
-  return newCard;
-};
-
 const renderCards = (cards) => (
-  cards.reverse().forEach((card) => gallery.append(createCardElement(card)))
+  cards.reverse().forEach((card) => gallery.append(new Card(card, '#card-template').generate()))
 );
 
 const addCard = () => {
-  gallery.prepend(createCardElement({
+  const newCard = new Card({
     name: inputTitle.value,
     link: inputLink.value,
-  }));
-};
+  }, '#card-template');
 
-const deleteCard = (evt) => {
-  const card = evt.target.closest('.card');
-  card.remove();
-};
-
-const toggleLike = (evt) => {
-  evt.target.classList.toggle('card__button-like_active');
+  gallery.prepend(newCard.generate());
 };
 
 const changeDataInProfile = () => {
@@ -129,13 +100,6 @@ const openAddPhotoPopup = () => {
   popupAdd.querySelector('.popup__form').reset();
   resetPopup(popupAdd);
   openPopup(popupAdd);
-};
-
-const openShowPhotoPopup = ({ name, link }) => {
-  popupCaption.textContent = name;
-  popupImage.src = link;
-  popupImage.alt = name;
-  openPopup(popupShow);
 };
 
 buttonEdit.addEventListener('click', openEditProfilePopup);
