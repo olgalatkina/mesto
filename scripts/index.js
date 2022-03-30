@@ -22,17 +22,19 @@ const inputLink = popupAdd.querySelector('#link');
 
 const popups = document.querySelectorAll('.popup');
 
+const generateCard = (card) => new Card(card, '#card-template').generate();
+
 const renderCards = (cards) => (
-  cards.reverse().forEach((card) => gallery.append(new Card(card, '#card-template').generate()))
+  cards.reverse().forEach((card) => gallery.append(generateCard(card)))
 );
 
 const addCard = () => {
-  const newCard = new Card({
+  const newCard = generateCard({
     name: inputTitle.value,
     link: inputLink.value,
   }, '#card-template');
 
-  gallery.prepend(newCard.generate());
+  gallery.prepend(newCard);
 };
 
 const changeDataInProfile = () => {
@@ -98,7 +100,7 @@ const openEditProfilePopup = () => {
 };
 
 const openAddPhotoPopup = () => {
-  popupAdd.querySelector('.popup__form').reset();
+  formPopupAdd.reset();
   resetPopup(popupAdd);
   openPopup(popupAdd);
 };
