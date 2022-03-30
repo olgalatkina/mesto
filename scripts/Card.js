@@ -1,3 +1,5 @@
+import { openPopup } from './utils.js';
+
 export default class Card {
   _popupShow = document.querySelector('#popup-show-photo');
   _popupImage = this._popupShow.querySelector('.popup__image');
@@ -7,9 +9,10 @@ export default class Card {
     this._data = data;
     this._selector = selector;
 
+    // вчера была лекция по ООП и наставник посоветовал
+    // использовать bind вместо стрелочных функций
     this._toggleLike = this._toggleLike.bind(this);
     this._deleteCard = this._deleteCard.bind(this);
-    this._handleEscPress = this._handleEscPress.bind(this);
   }
 
   _getElement() {
@@ -20,28 +23,19 @@ export default class Card {
       .cloneNode(true);
   }
 
-  _handleEscPress(evt) {
-    if (evt.key === 'Escape') {
-      this._closePopup(this._popupShow);
-    }
-  };
-
-  _closePopup(popup) {
-    popup.classList.remove('popup_opened');
-    document.removeEventListener(`keydown`, this._handleEscPress);
+  _resetShowPhotoPopup() {
+    this._popupImage.src = '';
+    this._popupImage.alt = '';
+    this._popupCaption.textContent = '';
   }
 
-  _openPopup(popup) {
-    popup.classList.add('popup_opened');
-    document.addEventListener(`keydown`, this._handleEscPress);
-  };
-
   _openShowPhotoPopup({ name, link }) {
+    this._resetShowPhotoPopup();
     this._popupImage.src = link;
     this._popupImage.alt = name;
     this._popupCaption.textContent = name;
 
-    this._openPopup(this._popupShow);
+    openPopup(this._popupShow);
   }
 
   _toggleLike() {

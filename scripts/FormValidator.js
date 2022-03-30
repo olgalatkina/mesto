@@ -2,6 +2,9 @@ export default  class FormValidator {
   constructor(validationSettings, formElement) {
     this._validationSettings = validationSettings;
     this._formElement = formElement;
+    this._submitButtonElement = this._formElement.querySelector(this._validationSettings.submitButtonSelector);
+    this._errorFields = this._formElement.querySelectorAll(this._validationSettings.errorTextSelector);
+    this._inputs = this._formElement.querySelectorAll(this._validationSettings.inputSelector);
   }
 
   _getErrorElement(formElement, inputElement) {
@@ -70,4 +73,15 @@ export default  class FormValidator {
     this._formElement.addEventListener('submit', (e) => e.preventDefault());
     this._setEventListeners(this._formElement, this._validationSettings);
   }
+
+  _setDisabledOnSubmitButton() {
+    this._submitButtonElement.classList.add('popup__button-save_disabled');
+    this._submitButtonElement.disabled = true;
+  };
+
+  resetPopupForm() {
+    this._errorFields.forEach((field) => field.textContent = '');
+    this._inputs.forEach((input) => input.classList.remove('popup__input_type_error'));
+    this._setDisabledOnSubmitButton();
+  };
 }
