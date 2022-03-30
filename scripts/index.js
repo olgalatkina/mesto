@@ -1,5 +1,6 @@
 import initialCards from './initialCards.js';
 import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 
 const profile = document.querySelector('.profile');
 const profileName = profile.querySelector('.profile__name');
@@ -118,5 +119,19 @@ popups.forEach((popup) => {
     }
   })
 });
+
+const validationSettings = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
+};
+
+const validationPopupEdit = new FormValidator(validationSettings, popupEdit);
+const validationPopupAdd = new FormValidator(validationSettings, popupAdd);
+
+validationPopupEdit.enableValidation();
+validationPopupAdd.enableValidation();
 
 renderCards(initialCards);
