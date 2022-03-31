@@ -75,13 +75,13 @@ export default  class FormValidator {
   }
 
   _setDisabledOnSubmitButton() {
-    this._submitButtonElement.classList.add('popup__button-save_disabled');
+    this._submitButtonElement.classList.add(this._validationSettings.inactiveButtonClass);
     this._submitButtonElement.disabled = true;
   };
 
   resetPopupForm() {
     this._errorFields.forEach((field) => field.textContent = '');
-    this._inputs.forEach((input) => input.classList.remove('popup__input_type_error'));
+    this._inputs.forEach((input) => input.classList.remove(this._validationSettings.inputErrorClass));
     this._setDisabledOnSubmitButton();
   };
 }
