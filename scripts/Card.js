@@ -1,13 +1,8 @@
-import { openPopup } from './utils.js';
-
 export default class Card {
-  _popupShow = document.querySelector('#popup-show-photo');
-  _popupImage = this._popupShow.querySelector('.popup__image');
-  _popupCaption = this._popupShow.querySelector('.popup__caption');
-
-  constructor(data, selector) {
+  constructor(data, selector, handleCardClick) {
     this._data = data;
     this._selector = selector;
+    this._handleCardClick = handleCardClick;
 
     this._toggleLike = this._toggleLike.bind(this);
     this._deleteCard = this._deleteCard.bind(this);
@@ -21,21 +16,6 @@ export default class Card {
       .cloneNode(true);
   }
 
-  _resetShowPhotoPopup() {
-    this._popupImage.src = '';
-    this._popupImage.alt = '';
-    this._popupCaption.textContent = '';
-  }
-
-  _openShowPhotoPopup({ name, link }) {
-    this._resetShowPhotoPopup();
-    this._popupImage.src = link;
-    this._popupImage.alt = name;
-    this._popupCaption.textContent = name;
-
-    openPopup(this._popupShow);
-  }
-
   _toggleLike() {
     this._element.querySelector('.card__button-like').classList.toggle('card__button-like_active');
   }
@@ -47,7 +27,7 @@ export default class Card {
 
   _setEventListeners() {
     this._image = this._element.querySelector('.card__image');
-    this._image.addEventListener('click', () => this._openShowPhotoPopup(this._data));
+    this._image.addEventListener('click', () => this._handleCardClick(this._data));
 
     this._like = this._element.querySelector('.card__button-like');
     this._like.addEventListener('click', this._toggleLike);

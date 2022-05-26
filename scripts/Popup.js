@@ -2,7 +2,6 @@ export default class Popup {
   constructor(selector) {
     this._popup = document.querySelector(selector);
     this._handleEscPress = this._handleEscPress.bind(this);
-    this.setEventListeners();
   }
 
   _handleEscPress(evt) {
