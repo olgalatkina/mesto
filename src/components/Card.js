@@ -40,9 +40,9 @@ export default class Card {
     this._getElement();
     this._setEventListeners();
 
-    this._image.alt = this._data.title;
+    this._image.alt = this._data.name;
     this._image.src = this._data.link;
-    this._element.querySelector('.card__title').textContent = this._data.title;
+    this._element.querySelector('.card__title').textContent = this._data.name;
 
     return this._element;
   }

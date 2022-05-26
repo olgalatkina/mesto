@@ -32,7 +32,8 @@ const popupWithImage = new PopupWithImage(popupWithImageSelector);
 popupWithImage.setEventListeners();
 
 const popupAdd = new PopupWithForm(popupAddSelector, (formData) => {
-  cardsList.addItem(formData);
+  const { title: name, link } = formData;
+  cardsList.addItem({ name , link });
 });
 
 popupAdd.setEventListeners();
