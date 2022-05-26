@@ -3,9 +3,6 @@ export default class Card {
     this._data = data;
     this._selector = selector;
     this._handleCardClick = handleCardClick;
-
-    this._toggleLike = this._toggleLike.bind(this);
-    this._deleteCard = this._deleteCard.bind(this);
   }
 
   _getElement() {
@@ -30,10 +27,10 @@ export default class Card {
     this._image.addEventListener('click', () => this._handleCardClick(this._data));
 
     this._like = this._element.querySelector('.card__button-like');
-    this._like.addEventListener('click', this._toggleLike);
+    this._like.addEventListener('click', () => this._toggleLike());
 
     this._trash = this._element.querySelector('.card__button-trash');
-    this._trash.addEventListener('click', this._deleteCard);
+    this._trash.addEventListener('click', () => this._deleteCard());
   }
 
   generate() {
