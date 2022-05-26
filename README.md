@@ -1,4 +1,4 @@
-[![LOGO](./images/logo-black.svg)](https://olgalatkina.github.io/mesto/ "Я ♥ ПУТЕШЕСТВОВАТЬ!")
+[![LOGO](src/images/logo-black.svg)](https://olgalatkina.github.io/mesto/ "Я ♥ ПУТЕШЕСТВОВАТЬ!")
 
 # Проект: МЕСТО &bullet; [![badge](https://img.shields.io/badge/Technologies-HTML5-orange)](https://html.spec.whatwg.org/multipage/) [![badge](https://img.shields.io/badge/Technologies-CSS3-blue)](https://www.w3.org/Style/CSS/#specs) [![badge](https://img.shields.io/badge/Technologies-JS-yellow)](https://www.w3.org/Style/CSS/#specs)
 
@@ -13,7 +13,7 @@ Cервис [Место](https://olgalatkina.github.io/mesto/): можно до�
 - Вёрстка из Фигмы
 - Функционал на "ванильном" JavaScript
 
-![screenshot](./images/preview.jpg)
+![screenshot](src/images/preview.jpg)
 
 **Figma**
 
