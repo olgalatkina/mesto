@@ -10,8 +10,6 @@ const buttonEdit = profile.querySelector('.profile__button-edit');
 const buttonAddCard = profile.querySelector('.profile__button-add');
 const popupEdit = document.querySelector('#popup-edit-profile');
 const formPopupEdit = popupEdit.querySelector('.popup__form');
-const inputName = popupEdit.querySelector('#name');
-const inputPosition = popupEdit.querySelector('#position');
 const popupAdd = document.querySelector('#popup-add-photo');
 const formPopupAdd = popupAdd.querySelector('.popup__form');
 
@@ -36,8 +34,6 @@ export {
   buttonAddCard,
   popupEdit,
   formPopupEdit,
-  inputName,
-  inputPosition,
   popupAdd,
   formPopupAdd,
   validationSettings,

@@ -10,8 +10,6 @@ import {
   buttonEdit,
   buttonAddCard,
   formPopupEdit,
-  inputName,
-  inputPosition,
   formPopupAdd,
   validationSettings,
 } from './constants.js';
@@ -56,8 +54,7 @@ popupEdit.setEventListeners();
 
 buttonEdit.addEventListener('click', () => {
   validationPopupEdit.resetPopupForm();
-  inputName.value = userInfo.getUserInfo().name;
-  inputPosition.value = userInfo.getUserInfo().position;
+  popupEdit.setInputValues(userInfo.getUserInfo());
   popupEdit.open();
 });
 
