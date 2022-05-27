@@ -4,6 +4,7 @@
   border: 1px solid var(--black);
   box-sizing: border-box;
   opacity: .2;
+  cursor: auto;
 }
 
 .popup__button-save_disabled:hover {
