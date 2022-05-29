@@ -37,6 +37,26 @@
       </footer>
     </div>
 
+    <section class="popup" id="popup-edit-avatar">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <form class="popup__form" action="#" method="post" novalidate>
+          <p class="popup__title">Обновить аватар</p>
+          <label for="name" class="popup__label">
+            <input
+              type="url"
+              name="avatar"
+              id="avatar"
+              class="popup__input"
+              placeholder="Ссылка на картинку"
+              required>
+            <p class="popup__error" id="avatar-error"></p>
+          </label>
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
     <section class="popup" id="popup-edit-profile">
       <div class="popup__container">
         <button type="button" class="popup__button-close"></button>
@@ -105,6 +125,16 @@
       </div>
     </section>
 
+    <section class="popup" id="popup-delete-card">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <div class="popup__form">
+          <p class="popup__title">Вы уверены?</p>
+          <button type="button" class="popup__button-save">Да</button>
+        </div>
+      </div>
+    </section>
+
     <section class="popup" id="popup-show-photo">
       <figure class="popup__figure">
         <button type="button" class="popup__button-close"></button>
@@ -119,7 +149,10 @@
         <img src="#" alt="" class="card__image">
         <div class="card__wrapper">
           <h3 class="card__title"></h3>
-          <button type="button" class="card__button-like"></button>
+          <div class="card__like-zone">
+            <button type="button" class="card__button-like"></button>
+            <span class="card__like-counter">0</span>
+          </div>
         </div>
       </li>
     </template>
