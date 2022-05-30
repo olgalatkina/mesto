@@ -19,7 +19,7 @@ import {
   validationSettings,
 } from '../utils/constants.js';
 
-import Api from "../components/App.js";
+import Api from "../components/Api.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import Card from '../components/Card.js';
