@@ -1,5 +1,6 @@
 import "./index.css";
 import {
+  profileAvatarSelector,
   profileNameSelector,
   profilePositionSelector,
   popupAvatarSelector,
@@ -8,11 +9,12 @@ import {
   popupWithImageSelector,
   cardTemplateSelector,
   gallerySelector,
+  avatar,
   buttonEdit,
   buttonAddCard,
+  formPopupAvatar,
   formPopupEdit,
   formPopupAdd,
-  formPopupAvatar,
   validationSettings,
 } from '../utils/constants.js';
 
@@ -55,15 +57,42 @@ validationPopupAvatar.enableValidation();
 
 // Profile
 // popupAvatar
+const popupAvatar = new PopupWithForm(popupAvatarSelector, (formData) => {
+  console.log('formData from popupAvatar: ', formData)
+  popupAvatar.renderLoading(false);
+  api
+    .changeUserAvatar(formData)
+    .then((data) => {
+      userInfo.setUserInfo(data);
+    })
+    .catch((err) => console.log(err))
+    .finally(() => popupAvatar.renderLoading(false));
+});
+
+popupAvatar.setEventListeners();
+
+avatar.addEventListener('click', () => {
+  validationPopupAvatar.resetPopupForm();
+  popupAvatar.open();
+})
 
 // popupEdit
 const userInfo = new UserInfo({
   nameSelector: profileNameSelector,
-  positionSelector: profilePositionSelector
+  positionSelector: profilePositionSelector,
+  avatarSelector: profileAvatarSelector,
 });
 
-const popupEdit = new PopupWithForm(popupEditSelector, ({ name, position }) => {
-  userInfo.setUserInfo({ name, position });
+const popupEdit = new PopupWithForm(popupEditSelector, (formData) => {
+  const { name, position: about } = formData;
+  popupEdit.renderLoading(false);
+  api
+    .changeUserInfo(formData)
+    .then((data) => {
+      userInfo.setUserInfo(data);
+    })
+    .catch((err) => console.log(err))
+    .finally(() => popupEdit.renderLoading(false));
 });
 
 popupEdit.setEventListeners();
