@@ -77,11 +77,11 @@ avatar.addEventListener('click', () => {
 })
 
 // popupEdit
-const userInfo = new UserInfo({
-  nameSelector: profileNameSelector,
-  positionSelector: profilePositionSelector,
-  avatarSelector: profileAvatarSelector,
-});
+const userInfo = new UserInfo(
+  profileNameSelector,
+  profilePositionSelector,
+  profileAvatarSelector
+);
 
 const popupEdit = new PopupWithForm(popupEditSelector, (formData) => {
   const { name, position: about } = formData;
@@ -105,8 +105,14 @@ buttonEdit.addEventListener('click', () => {
 
 // popupAdd
 const popupAdd = new PopupWithForm(popupAddSelector, (formData) => {
-  const { title: name, link } = formData;
-  cardsList.addItem({ name , link });
+  popupAdd.renderLoading(false);
+  api
+    .addCard(formData)
+    .then((data) => {
+      cardsList.addItem(data);
+    })
+    .catch((err) => console.log(err))
+    .finally(() => popupAdd.renderLoading(false));
 });
 
 popupAdd.setEventListeners();
@@ -125,5 +131,3 @@ popupWithImage.setEventListeners();
 // рендер карточек
 const createCard = (data) => new Card(data, cardTemplateSelector, () => popupWithImage.open(data)).generate();
 const cardsList = new Section((cardItem) => createCard(cardItem), gallerySelector);
-
-// cardsList.addItems();
