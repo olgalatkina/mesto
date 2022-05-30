@@ -7,6 +7,7 @@ import {
   popupEditSelector,
   popupAddSelector,
   popupWithImageSelector,
+  popupConfirmationSelector,
   cardTemplateSelector,
   gallerySelector,
   avatar,
@@ -84,7 +85,6 @@ const userInfo = new UserInfo(
 );
 
 const popupEdit = new PopupWithForm(popupEditSelector, (formData) => {
-  const { name, position: about } = formData;
   popupEdit.renderLoading(false);
   api
     .changeUserInfo(formData)
@@ -127,7 +127,32 @@ const popupWithImage = new PopupWithImage(popupWithImageSelector);
 popupWithImage.setEventListeners();
 
 // popupWithConfirmation
+const popupConfirmation = new PopupWithConfirmation(popupConfirmationSelector);
+popupConfirmation.setEventListeners();
 
 // рендер карточек
-const createCard = (data) => new Card(data, cardTemplateSelector, () => popupWithImage.open(data)).generate();
+const createCard = (data) => {
+  const card = new Card(
+    data,
+    cardTemplateSelector,
+    () => popupWithImage.open(data),
+    () => {
+      popupConfirmation.setConfirm(() => {
+        popupConfirmation.renderLoading(true);
+        api
+          .deleteCard(data._id)
+          .then(() => {
+            card.deleteCard();
+            popupConfirmation.close();
+          })
+          .catch((err) => console.log(err))
+          .finally(() => popupConfirmation.renderLoading(false))
+      })
+      popupConfirmation.open()
+    },
+    api,
+    userId,
+  )
+  return card.generate();
+}
 const cardsList = new Section((cardItem) => createCard(cardItem), gallerySelector);

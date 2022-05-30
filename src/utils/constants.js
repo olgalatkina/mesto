@@ -5,6 +5,7 @@ const popupAvatarSelector = '#popup-edit-avatar';
 const popupEditSelector = '#popup-edit-profile';
 const popupAddSelector = '#popup-add-photo';
 const popupWithImageSelector = '#popup-show-photo';
+const popupConfirmationSelector = '#popup-confirmation';
 const cardTemplateSelector = '#card-template';
 const gallerySelector = '.gallery__list';
 const profile = document.querySelector('.profile');
@@ -35,6 +36,7 @@ export {
   popupEditSelector,
   popupAddSelector,
   popupWithImageSelector,
+  popupConfirmationSelector,
   cardTemplateSelector,
   gallerySelector,
   avatar,
