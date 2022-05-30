@@ -74,7 +74,7 @@ export default class Card {
     this._likesOutput.textContent = this._likes.length;
 
     if (this._ownerId !== this._userId) {
-      this._trash.style.display = 'none';
+      this._trash.classList.add('card__button-trash_hidden');
     }
 
     if(this._likes.some((obj) => this._userId == obj._id)) {
