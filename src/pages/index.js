@@ -59,7 +59,6 @@ validationPopupAvatar.enableValidation();
 // Profile
 // popupAvatar
 const popupAvatar = new PopupWithForm(popupAvatarSelector, (formData) => {
-  console.log('formData from popupAvatar: ', formData)
   popupAvatar.renderLoading(false);
   api
     .changeUserAvatar(formData)
