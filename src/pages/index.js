@@ -84,7 +84,7 @@ const userInfo = new UserInfo(
 );
 
 const popupEdit = new PopupWithForm(popupEditSelector, (formData) => {
-  popupEdit.renderLoading(false);
+  popupEdit.renderLoading(true);
   api
     .changeUserInfo(formData)
     .then((data) => {
@@ -104,7 +104,7 @@ buttonEdit.addEventListener('click', () => {
 
 // popupAdd
 const popupAdd = new PopupWithForm(popupAddSelector, (formData) => {
-  popupAdd.renderLoading(false);
+  popupAdd.renderLoading(true);
   api
     .addCard(formData)
     .then((data) => {
