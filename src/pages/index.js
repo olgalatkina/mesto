@@ -20,6 +20,7 @@ import Section from "../components/Section.js";
 import Card from '../components/Card.js';
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithConfirmation from '../components/PopupWithConfirmation.js'
 import FormValidator from '../components/FormValidator.js';
 
 const validationPopupEdit = new FormValidator(validationSettings, formPopupEdit);
