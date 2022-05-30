@@ -30,7 +30,7 @@ export default class Card {
         .addLike(this._id)
         .then((data) => {
           this._like.classList.add('card__button-like_active');
-          this._likesOutput.textContent = this._likes.length;
+          this._likesOutput.textContent = data.likes.length;
         })
         .catch((err) => {
           console.log(err);
@@ -40,7 +40,7 @@ export default class Card {
         .deleteLike(this._id)
         .then((data) => {
           this._like.classList.remove('card__button-like_active');
-          this._likesOutput.textContent = this._likes.length;
+          this._likesOutput.textContent = data.likes.length;
         })
         .catch((err) => {
           console.log(err);
@@ -55,11 +55,7 @@ export default class Card {
 
   _setEventListeners() {
     this._image.addEventListener('click', () => this._handleCardClick(this._data));
-
-    this._like.addEventListener('click', () => {
-      this._toggleLike();
-    });
-
+    this._like.addEventListener('click', () => this._toggleLike());
     this._trash.addEventListener('click', () => this._handleTrashClick());
   }
 
