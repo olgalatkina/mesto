@@ -59,6 +59,10 @@ export default class Card {
     this._trash.addEventListener('click', () => this._handleTrashClick());
   }
 
+  _isLiked() {
+    return Boolean(this._likes.find((item) => item._id === this._userId));
+  }
+
   generate() {
     this._getElement();
     this._element.querySelector('.card__title').textContent = this._name;
@@ -77,7 +81,7 @@ export default class Card {
       this._trash.classList.add('card__button-trash_hidden');
     }
 
-    if(this._likes.some((obj) => this._userId == obj._id)) {
+    if(this._isLiked()) {
       this._like.classList.add('card__button-like_active');
     }
 
