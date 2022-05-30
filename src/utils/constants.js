@@ -1,8 +1,9 @@
 const profileNameSelector = '.profile__name';
 const profilePositionSelector = '.profile__position';
-const popupWithImageSelector = '#popup-show-photo';
-const popupAddSelector = '#popup-add-photo';
+const popupAvatarSelector = '#popup-edit-avatar';
 const popupEditSelector = '#popup-edit-profile';
+const popupAddSelector = '#popup-add-photo';
+const popupWithImageSelector = '#popup-show-photo';
 const cardTemplateSelector = '#card-template';
 const gallerySelector = '.gallery__list';
 const profile = document.querySelector('.profile');
@@ -12,6 +13,8 @@ const popupEdit = document.querySelector('#popup-edit-profile');
 const formPopupEdit = popupEdit.querySelector('.popup__form');
 const popupAdd = document.querySelector('#popup-add-photo');
 const formPopupAdd = popupAdd.querySelector('.popup__form');
+const popupAvatar = document.querySelector('#popup-edit-avatar');
+const formPopupAvatar = popupAvatar.querySelector('.popup__form');
 
 const validationSettings = {
   errorTextSelector: '.popup__error',
@@ -25,16 +28,16 @@ const validationSettings = {
 export {
   profileNameSelector,
   profilePositionSelector,
-  popupWithImageSelector,
-  popupAddSelector,
+  popupAvatarSelector,
   popupEditSelector,
+  popupAddSelector,
+  popupWithImageSelector,
   cardTemplateSelector,
   gallerySelector,
   buttonEdit,
   buttonAddCard,
-  popupEdit,
   formPopupEdit,
-  popupAdd,
   formPopupAdd,
+  formPopupAvatar,
   validationSettings,
 };
