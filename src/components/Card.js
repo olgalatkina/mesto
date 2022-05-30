@@ -1,5 +1,5 @@
 export default class Card {
-  constructor(data, selector, handleCardClick, handleTrashClick, api, userId) {
+  constructor(data, selector, handleCardClick, handleTrashClick, handleLikeClick, userId) {
     this._data = data;
     this._id = data._id;
     this._name = data.name;
@@ -11,8 +11,8 @@ export default class Card {
 
     this._handleCardClick = handleCardClick;
     this._handleTrashClick = handleTrashClick;
+    this._handleLikeClick = handleLikeClick;
 
-    this._api = api;
     this._userId = userId;
   }
 
@@ -24,27 +24,16 @@ export default class Card {
       .cloneNode(true);
   }
 
-  _toggleLike() {
-    if (!(this._like.classList.contains('card__button-like_active'))) {
-      this._api
-        .addLike(this._id)
-        .then((data) => {
-          this._like.classList.add('card__button-like_active');
-          this._likesOutput.textContent = data.likes.length;
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+  updateData(newData) {
+    this._likes = newData.likes;
+  }
+
+  updateLikesView() {
+    this._likesOutput.textContent = this._likes.length;
+    if (this.isLiked()) {
+      this._like.classList.add('card__button-like_active');
     } else {
-      this._api
-        .deleteLike(this._id)
-        .then((data) => {
-          this._like.classList.remove('card__button-like_active');
-          this._likesOutput.textContent = data.likes.length;
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+      this._like.classList.remove('card__button-like_active');
     }
   }
 
@@ -55,11 +44,11 @@ export default class Card {
 
   _setEventListeners() {
     this._image.addEventListener('click', () => this._handleCardClick(this._data));
-    this._like.addEventListener('click', () => this._toggleLike());
+    this._like.addEventListener('click', () => this._handleLikeClick());
     this._trash.addEventListener('click', () => this._handleTrashClick());
   }
 
-  _isLiked() {
+  isLiked() {
     return Boolean(this._likes.find((item) => item._id === this._userId));
   }
 
@@ -81,7 +70,7 @@ export default class Card {
       this._trash.classList.add('card__button-trash_hidden');
     }
 
-    if(this._isLiked()) {
+    if(this.isLiked()) {
       this._like.classList.add('card__button-like_active');
     }
 

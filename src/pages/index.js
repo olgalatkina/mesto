@@ -149,7 +149,29 @@ const createCard = (data) => {
       })
       popupConfirmation.open()
     },
-    api,
+    () => {
+      if (!card.isLiked()) {
+        api
+          .addLike(data._id)
+          .then((data) => {
+            card.updateData(data);
+            card.updateLikesView();
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      } else {
+        api
+          .deleteLike(data._id)
+          .then((data) => {
+            card.updateData(data);
+            card.updateLikesView();
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      }
+    },
     userId,
   )
   return card.generate();
