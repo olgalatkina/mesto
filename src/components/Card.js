@@ -49,7 +49,7 @@ export default class Card {
   }
 
   isLiked() {
-    return Boolean(this._likes.find((item) => item._id === this._userId));
+    return this._likes.some((item) => item._id === this._userId);
   }
 
   generate() {
