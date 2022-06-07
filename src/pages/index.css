@@ -1,7 +1,7 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/font-face.css);
 @import url(../variables/variables.css);
-@import url(../blocks/root/root.css);
+@import url(../blocks/body/body.css);
 @import url(../blocks/container/container.css);
 
 /* HEADER */
