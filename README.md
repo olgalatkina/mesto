@@ -1,6 +1,7 @@
 [![LOGO](src/images/logo-black.svg)](https://olgalatkina.github.io/mesto/ "Я ♥ ПУТЕШЕСТВОВАТЬ!")
 
 # Проект: МЕСТО &bullet; [![badge](https://img.shields.io/badge/Technologies-HTML5-orange)](https://html.spec.whatwg.org/multipage/) [![badge](https://img.shields.io/badge/Technologies-CSS3-blue)](https://www.w3.org/Style/CSS/#specs) [![badge](https://img.shields.io/badge/Technologies-JS-yellow)](https://www.w3.org/Style/CSS/#specs)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2bea4885800d9dffcdc6/maintainability)](https://codeclimate.com/github/olgalatkina/mesto/maintainability)
 
 Cервис [Место](https://olgalatkina.github.io/mesto/): можно добавлять фотографии, удалять их и ставить лайки
 
